@@ -64,13 +64,16 @@ function App() {
               return obj.name.toLowerCase().includes(searchValue.toLowerCase());
             })
             .map((obj, index) => {
-              <Collection key={index} name={obj.name} images={obj.photos} />;
+              return (
+                <Collection key={index} name={obj.name} images={obj.photos} />
+              );
             })
         )}
       </div>
       <ul className="pagination">
         {[...Array(5)].map((_, i) => (
           <li
+            key={i}
             onClick={() => setPage(i + 1)}
             className={page === i + 1 ? "active" : ""}>
             {i + 1}
